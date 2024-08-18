@@ -1,0 +1,332 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%);
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+/* 顶部艺术字体 */
+.header {
+  text-align: center;
+  padding-top: 15vh; /* 调整与顶部的间距 */
+  position: relative;
+  width: 100%;
+}
+
+.header h1 {
+  font-size: 5vw;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  font-family: 'Pacifico', cursive;
+  white-space: nowrap; /* 防止换行 */
+}
+
+/* 中间视频元素 */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-top: 10vh; /* 进一步下移视频 */
+}
+
+.video-container video {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+/* 左上角图片旋转效果 */
+.hanging-image {
+  position: absolute;
+  top: 20px;
+  left: -3px;
+  width: 100px;
+  height: auto;
+  transform: rotate(-15deg);
+  animation: swing 2s ease-in-out infinite;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+/* 右上角图片旋转效果 */
+.rotating-image {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: rotate 5s linear infinite;
+}
+
+.rotating-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 底部相册容器 */
+.photo-album {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+  height: 60vh; /* 调整相册的高度 */
+  box-sizing: border-box; /* 包括内边距和边框在宽度和高度中 */
+  background-size: contain; /* 确保背景图片适应容器 */
+}
+
+/* 调整底部相册容器在不同屏幕尺寸上的样式 */
+@media (max-width: 932px) {
+  .photo-album {
+    height: 20vh; /* 在移动设备上减少相册的高度 */
+    margin-top:10vh;
+  }
+  .box {
+    width: 6vw; /* 在移动设备上减少相册的宽度 */
+    height: 6vw; /* 在移动设备上减少相册的高度 */
+  }
+  .minbox, .maxbox {
+    width: 3vw; /* 在移动设备上减少正方体的尺寸 */
+    height: 3vw; /* 在移动设备上减少正方体的尺寸 */
+  }
+  .minbox li, .maxbox li {
+    width: 3vw; /* 在移动设备上减少每个面大小 */
+    height: 3vw; /* 在移动设备上减少每个面大小 */
+  }
+  .header {
+    padding-top: 15vh; /* 调整顶部间距以适应小屏幕 */
+  }
+  .header h1 {
+    font-size: 8vw; /* 增加字体大小的 viewport units 值以适应更小的屏幕 */
+  }
+  .video-container {
+    padding-top: 5vh; /* 调整视频的位置 */
+  }
+  .video-container video {
+    border-radius: 10px; /* 确保圆角在所有设备上应用 */
+  }
+}
+
+
+.box {
+  width: 10vw; /* 调整相册的宽度 */
+  height: 10vw; /* 调整相册的高度 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  position: absolute;
+  margin-left: 0;
+  margin-top: 0;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateX(13deg);
+  -webkit-animation: move 5s linear infinite;
+}
+
+
+/* 修正 minbox 和 maxbox 的样式 */
+.minbox, .maxbox {
+  list-style: none; /* 确保列表项没有任何默认样式 */
+  padding: 0; /* 移除默认内边距 */
+  margin: 0; /* 移除默认外边距 */
+}
+
+.minbox {
+  width: 75px; /* 调整内层正方体的宽度 */
+  height: 75px; /* 调整内层正方体的高度 */
+  position: absolute;
+  left: 25px; /* 调整内层正方体的位置 */
+  top: 25px; /* 调整内层正方体的位置 */
+  -webkit-transform-style: preserve-3d;
+}
+
+.minbox li {
+  width: 75px; /* 调整内层正方体的每个面 */
+  height: 75px; /* 调整内层正方体的每个面 */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.minbox li:nth-child(1) {
+  background: url(../imgs/1.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: translateZ(30px);
+}
+
+.minbox li:nth-child(2) {
+  background: url(../imgs/2.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateX(180deg) translateZ(30px);
+}
+
+.minbox li:nth-child(3) {
+  background: url(../imgs/3.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateX(-90deg) translateZ(30px);
+}
+
+.minbox li:nth-child(4) {
+  background: url(../imgs/4.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateX(90deg) translateZ(30px);
+}
+
+.minbox li:nth-child(5) {
+  background: url(../imgs/5.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateY(-90deg) translateZ(30px);
+}
+
+.minbox li:nth-child(6) {
+  background: url(../imgs/6.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateY(90deg) translateZ(30px);
+}
+
+.maxbox {
+  width: 300px; /* 调整外层正方体的宽度 */
+  height: 150px; /* 调整外层正方体的高度 */
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transform-style: preserve-3d;
+}
+
+.maxbox li {
+  width: 100px; /* 调整外层正方体的每个面 */
+  height: 100px; /* 调整外层正方体的每个面 */
+  background: #fff;
+  border: 1px solid #ccc;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.2;
+  -webkit-transition: all 1s ease;
+}
+
+.maxbox li:nth-child(1) {
+  background: url(../imgs/7.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: translateZ(50px);
+}
+
+.maxbox li:nth-child(2) {
+  background: url(../imgs/8.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateX(180deg) translateZ(50px);
+}
+
+.maxbox li:nth-child(3) {
+  background: url(../imgs/9.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateX(-90deg) translateZ(50px);
+}
+
+.maxbox li:nth-child(4) {
+  background: url(../imgs/10.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateX(90deg) translateZ(50px);
+}
+
+.maxbox li:nth-child(5) {
+  background: url(../imgs/11.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateY(-90deg) translateZ(50px);
+}
+
+.maxbox li:nth-child(6) {
+  background: url(../imgs/12.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-transform: rotateY(90deg) translateZ(50px);
+}
+
+.box:hover ol li:nth-child(1) {
+  -webkit-transform: translateZ(150px);
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+  left: -50px;
+  top: -50px;
+}
+
+.box:hover ol li:nth-child(2) {
+  -webkit-transform: rotateX(180deg) translateZ(150px);
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+  left: -50px;
+  top: -50px;
+}
+
+.box:hover ol li:nth-child(3) {
+  -webkit-transform: rotateX(-90deg) translateZ(150px);
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+  left: -50px;
+  top: -50px;
+}
+
+.box:hover ol li:nth-child(4) {
+  -webkit-transform: rotateX(90deg) translateZ(150px);
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+  left: -50px;
+  top: -50px;
+}
+
+.box:hover ol li:nth-child(5) {
+  -webkit-transform: rotateY(-90deg) translateZ(150px);
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+  left: -50px;
+  top: -50px;
+}
+
+.box:hover ol li:nth-child(6) {
+  -webkit-transform: rotateY(90deg) translateZ(150px);
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+  left: -50px;
+  top: -50px;
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: rotateX(13deg) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(13deg) rotateY(360deg);
+  }
+}

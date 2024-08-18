@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This is Ljq's birthday</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preload" href="./js/main.js" as="script">
+</head>
+
+<body>
+  <!-- 左上角图片 -->
+  <img src="./imgs/xl.png" alt="悬挂图片" class="hanging-image">
+
+  <!-- 右上角图片 -->
+  <img src="./imgs/ljq.jpg" alt="旋转图片" class="rotating-image">
+
+  <!-- 顶部艺术字体 -->
+  <div class="header">
+    <h1>Happy Birthday Honey</h1>
+  </div>
+
+  <!-- 中间视频元素 -->
+  <div class="video-container">
+    <video controls preload="none">
+      <source src="./videos/happyLjq.mp4" type="video/mp4">
+      您的浏览器不支持视频标签。
+    </video>
+  </div>
+
+  <!-- 底部 3D 相册 -->
+  <div class="photo-album">
+    <div class="box">
+      <!-- 内层正方体 -->
+      <ul class="minbox">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <!-- 外层正方体 -->
+      <ol class="maxbox">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 引入外部 JavaScript -->
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
